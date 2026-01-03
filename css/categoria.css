@@ -1,0 +1,237 @@
+/* categoria.css - Plantilla reusable para todas las páginas de categoría */
+
+/* Estilos específicos para páginas de categoría */
+.categoria-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 140px 10% 80px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.categoria-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-text);
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+    color: var(--medium-text);
+}
+
+.breadcrumb a {
+    color: var(--medium-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-color);
+}
+
+.breadcrumb span {
+    margin: 0 10px;
+    color: var(--light-text);
+}
+
+/* Sección de servicios de la categoría */
+.servicios-categoria {
+    padding: 5rem 10%;
+    background-color: var(--white);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+.servicio-item {
+    background-color: var(--light-color);
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--primary-color);
+}
+
+.servicio-icon i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.servicio-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.servicio-item p {
+    color: var(--medium-text);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.servicio-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: auto;
+}
+
+.servicio-btn:hover {
+    background-color: var(--dark-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(232, 126, 140, 0.3);
+}
+
+/* Zonas de servicio */
+.zonas-servicio {
+    padding: 5rem 10%;
+    background-color: var(--light-color);
+}
+
+.zonas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.zona-item {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.zona-item:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* CTA Section */
+.cta-categoria {
+    padding: 5rem 10%;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--dark-accent) 100%);
+    text-align: center;
+    color: white;
+}
+
+.cta-categoria h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.cta-categoria p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.cta-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* Mapa embebido */
+.mapa-embebido {
+    padding: 0 10% 5rem;
+    background-color: var(--white);
+}
+
+.mapa-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .categoria-hero {
+        padding: 120px 5% 60px;
+    }
+    
+    .categoria-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .servicios-categoria,
+    .zonas-servicio,
+    .cta-categoria,
+    .mapa-embebido {
+        padding: 3rem 5%;
+    }
+    
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .zonas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .cta-categoria h2 {
+        font-size: 2rem;
+    }
+}
