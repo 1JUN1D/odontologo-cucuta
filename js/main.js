@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mixed Media Carousel (videos + images)
     const mediaItems = [
-        { type: 'video', src: 'assets/Video1.mp4', alt: 'Consultorio dental moderno' },
-        { type: 'video', src: 'assets/Video2.mp4', alt: 'Equipo odontológico' },
-        { type: 'image', src: 'assets/i1.jpg' },
-        { type: 'image', src: 'assets/i2.jpg' },
-        { type: 'image', src: 'assets/i3.jpg' },
+        { type: 'video', src: 'assets/vid1.mp4', alt: 'Consultorio dental moderno' },
+        { type: 'video', src: 'assets/vid2.mp4', alt: 'Equipo odontológico' },
+        { type: 'video', src: 'assets/vid3.mp4', alt: 'Equipo odontológico' },
+        { type: 'video', src: 'assets/vid4.mp4', alt: 'Equipo odontológico' },
+
     ];
 
     const carousel = document.getElementById('videoCarousel');
