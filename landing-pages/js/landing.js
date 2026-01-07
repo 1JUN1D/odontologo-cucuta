@@ -6,14 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const question = item.querySelector('.faq-question');
         
         question.addEventListener('click', () => {
-            // Close all other FAQ items
             faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
                 }
             });
-            
-            // Toggle current item
             item.classList.toggle('active');
         });
     });
@@ -33,41 +30,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Track WhatsApp clicks for Google Ads conversion
+// Enhanced WhatsApp Click Tracking
 function trackWhatsAppClick(buttonId) {
-    // Google Ads Conversion Tracking
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17854498384/CcybCOjBo90bENCM2MFC',
-            'event_callback': function() {
-                console.log('Conversion tracked: WhatsApp click from ' + buttonId);
-            }
-        });
-    }
-    
-    // Google Analytics Event Tracking
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'click', {
-            'event_category': 'WhatsApp',
-            'event_label': buttonId,
-            'value': 1
-        });
+    try {
+        // Google Ads Conversion Tracking
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17854498384/CcybCOjBo90bENCM2MFC',
+                'event_callback': function() {
+                    console.log('✅ Conversión registrada: ' + buttonId);
+                }
+            });
+            
+            // Google Analytics 4 Event
+            gtag('event', 'generate_lead', {
+                'event_category': 'WhatsApp',
+                'event_label': buttonId,
+                'value': 1,
+                'currency': 'COP'
+            });
+        }
+    } catch (error) {
+        console.error('Error en tracking:', error);
     }
 }
 
-// Add tracking to all WhatsApp buttons
+// Track WhatsApp floating button clicks
 document.addEventListener('DOMContentLoaded', function() {
     const whatsappButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
     
     whatsappButtons.forEach((button, index) => {
-        button.addEventListener('click', function() {
-            const buttonId = this.id || 'whatsapp-button-' + (index + 1);
-            trackWhatsAppClick(buttonId);
-        });
+        // Solo agregar listener si NO tiene onclick definido
+        if (!button.hasAttribute('onclick')) {
+            button.addEventListener('click', function(e) {
+                const buttonId = this.id || 'whatsapp-button-' + (index + 1);
+                trackWhatsAppClick(buttonId);
+            });
+        }
     });
 });
 
-// Form submission handler (if you add forms later)
+// Form submission handler
 function sendWhatsAppMessage(event) {
     event.preventDefault();
     
@@ -78,10 +81,8 @@ function sendWhatsAppMessage(event) {
     const whatsappMessage = `Hola, soy ${name}. Mi teléfono es ${phone}. ${message}`;
     const whatsappURL = `https://wa.me/573222363192?text=${encodeURIComponent(whatsappMessage)}`;
     
-    // Track conversion before redirect
     trackWhatsAppClick('contact-form');
     
-    // Small delay to ensure tracking fires
     setTimeout(() => {
         window.open(whatsappURL, '_blank');
     }, 300);
